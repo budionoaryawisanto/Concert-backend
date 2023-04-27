@@ -44,7 +44,8 @@ try {
 app.use(cors({ credentials: true, origin:"http://localhost:3000" }))
 app.use(cookieParser())
 app.use(express.json())
-app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'))
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'))
+app.use('/images', express.static('images'))
 app.use(router)
 
 app.listen(port, () => {
